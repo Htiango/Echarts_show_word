@@ -113,5 +113,5 @@ Using the Graph Webkit Dep model in the Echarts' official document to display. I
 
 The visual interface is as follows:
 
-![WebImg](djangoImg1.png? Raw = true "Optional Title")
+![WebImg](djangoImg1.png? Raw = true "Optional Title 2")
 
