@@ -1,0 +1,9 @@
+# Django section:
+*.log
+*.pot
+*.pyc
+local_settings.py
+*.py[cod]
+
+# the data should not be public due to the privacy rules from Alibaba
+data
