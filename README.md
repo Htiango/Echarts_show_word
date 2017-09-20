@@ -1,4 +1,4 @@
-# 问题画像可视化展示
+# 问题画像可视化展示 (The display of the visualization of problem figure)
 
 ## 简介
 
@@ -18,7 +18,7 @@ $ python manage.py runserver 0.0.0.0:8800
 
 + Django (1.10.4)
 + Echarts 3.0
-+ Python 2.7.5 
++ Python 2.7.5
 
 ## 数据预处理
 
@@ -64,4 +64,54 @@ $ python get_relation.py -h
 
 
 
+=======================ENGLISH VERSION====================
+
+## Introduction
+This is about the display of visualization of the problem figur. It reveals the relationship among the words from medicine, disease and symptom from the massive dialogs between doctors and patients. It not only represents the relationship between words, but also show the relavant sentenses from the dialogs. It now covers the type on Andrology, Gynecological, Obesity and Dermatology. And it is easy to add a new department through the remain entrance.
+
+Run the following command on the 79 server. If you want to replace the server, make changes in the setting
+
+```shell
+$ python manage.py runserver 0.0.0.0:8800
+```
+
+Since the amount of data is small now, we temporarily read files to get the data, with the increasing in the amount of data, we will migrate it to the database. The current file path is based on the absolute path to read and write.
+
+
+## Enviroment
+Based on the framework of django, the project uses Echart to achieve data visualization. It uses bootstrap. The project's operating environment is as follows:
+
++ Django (1.10.4)
++ Echarts 3.0
++ Python 2.7.5
+
+## Data pre-processiong
+Data preprocessing part is in the data_processing/ folder. The preprocessing process is as follows:
+
++ Preprocessing user question file, each question for one line
++ Disable vocabulary as well as professional vocabulary
++ Build a vocabulary of drugs, symptoms, and diseases based on the analysis. 
+
+Next run first:
+
+`` `shell
+$ python get_corpus.py -h
+`` ``
+
+Generate corpus according to the help function. 
+
+Then run:
+
+`` `shell
+$ python get_relation.py -h
+`` ``
+
+Generate json files for data visualization based on the instructions
+
+## Visualiza data using Echarts
+Using the Graph Webkit Dep model in the Echarts' official document to display. It looks like a force graph with three layers: the first layer represents the category (such as the combination of medication and symptom words), the second layer represents the first category of high-frequency (For example, all the high frequency keywords used in the question), the third layer represents the second category and the second layer of the word combination of high frequency words. By clicking the second and third level nodes, we can also see the corresponding questions from patients.
+
+The visual interface is as follows:
+
+! [WebImg] (djangoImg1.png? Raw = true "Optional Title")
 
