@@ -1,0 +1,31 @@
+<!-- <form action="." method="post">{% csrf_token %} -->
+<div id = "panel-1">
+    <h4>
+        <font face="微软雅黑" >{{ title }}</font>
+    </h4>
+</div>
+<div id="panel-2" style="height:450px;overflow:auto;">
+    <br/>
+    {% if table %}
+        <table class="table" width="80%">
+            <tbody>
+            {% for item in data %}
+            <tr>
+                <td width="15%"><strong>句子</strong></td>
+                <td>{{ item }}</td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>
+            {% for item in data %}
+                {% autoescape off %}{{ item }}{% endautoescape %}<br>
+            {% endfor %}
+        </p>
+    {% endif %}
+</div>
+</div>
+
+
+<!-- </form> -->

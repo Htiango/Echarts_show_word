@@ -1,0 +1,26 @@
+.navbar-nav > li > a {
+    font-weight: normal;
+    font-size: 115%;
+    font-family: "微软雅黑";
+
+}
+
+.navbar-brand{
+    font-weight: normal;
+    font-size: 115%;
+    font-family: "微软雅黑";
+}
+
+.bdsug {
+    display: none;
+    position: absolute;
+    z-index: 1;
+    width: 538px;
+    background: #fff;
+    border: 1px solid #ccc;
+    _overflow: hidden;
+    box-shadow: 1px 1px 3px #ededed;
+    -webkit-box-shadow: 1px 1px 3px #ededed;
+    -moz-box-shadow: 1px 1px 3px #ededed;
+    -o-box-shadow: 1px 1px 3px #ededed;
+}

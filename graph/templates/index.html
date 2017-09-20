@@ -1,0 +1,123 @@
+<html>
+    <head>
+        <title>{% block title %}{% endblock %}</title>
+        {% load staticfiles %}
+        <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+	    <!-- Bootstrap theme -->
+	    <link rel="stylesheet" href="{% static 'css/bootstrap-theme.min.css' %}">
+	    <!--echarts3-->
+	    <script src="{% static 'js/echarts.js' %}"></script>
+	    <script src="{% static 'js/jquery-3.1.0.min.js' %}"></script>
+	    <!--<script src="{% static 'js/typeahead.min.js' %}"></script>-->
+	    <script src="{% static 'js/bootstrap3-typeahead.min.js' %}"></script>
+	    <script src="{% static 'js/tether.min.js' %}"></script>
+	    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+	    <!--Custom styles-->
+	    <link rel="stylesheet" href="{% static 'css/custom.css' %}">
+    </head>
+    <body>
+        <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+		<div id="main" style="height:400px"></div>
+		<!-- ECharts文件引入 -->
+<!-- 		// <script src="http://echarts.baidu.com/build/dist/echarts-all.js"></script> -->
+		<script type="text/javascript">
+			// 基于准备好的dom，初始化echarts图表
+			var myChart = echarts.init(document.getElementById('main'));
+
+		    var categories = [];
+		    for (var i = 0; i < 9; i++) {
+		        categories[i] = {
+		            name: '类目' + i
+		        };
+		    }
+
+			option = {
+		        title: {
+		            text: 'Les Miserables',
+		            subtext: 'Default layout',
+		            top: 'bottom',
+		            left: 'right'
+		        },
+		        tooltip: {},
+		        legend: [{
+		            // selectedMode: 'single',
+		            data: categories.map(function (a) {
+		                return a.name;
+		            })
+		        }],
+		        animation: false,
+		        series : [
+		            {
+		                name: 'Les Miserables',
+		                type: 'graph',
+		                layout: 'force',
+		                data: [{
+						    name: '1',
+						    x: 10,
+						    y: 10,
+						    value: 10,
+						    category: 1
+						}, {
+						    name: '2',
+						    x: 100,
+						    y: 100,
+						    value: 20,
+						    category: 1
+						}],
+		                links: [{
+						    source: '1',
+						    target: '2'
+						}],
+		                categories: categories,
+		                roam: true,
+		                label: {
+		                    normal: {
+		                        position: 'right'
+		                    }
+		                },
+		                force: {
+		                    repulsion: 100
+		                }
+		            }
+		        ]
+		    };
+
+			// var option = {
+			//     tooltip: {
+			//         show: true
+			//     },
+			//     legend: {
+			//         data:['销量']
+			//     },
+			//     xAxis : [
+			//         {
+			//             type : 'category',
+			//             data : ["衬衫","羊毛衫","雪纺衫","裤子","高跟鞋"]
+			//         }
+			//     ],
+			//     yAxis : [
+			//         {
+			//             type : 'value'
+			//         }
+			//     ],
+			//     series : [
+			//         {
+			//             "name":"销量",
+			//             "type":"bar",
+			//             "data":[
+			//                 {value:335, name:'衬衫'},
+			//                 {value:310, name:'羊毛衫'},
+			//                 {value:234, name:'雪纺衫'},
+			//                 {value:135, name:'裤子'},
+			//                 {value:1548, name:'高跟鞋'}
+			//             ]
+			//         }
+			//     ]
+			// };
+
+            console.log(option);
+			// 为echarts对象加载数据
+			myChart.setOption(option);
+		</script>
+    </body>
+</head>
